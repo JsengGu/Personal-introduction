@@ -1,0 +1,372 @@
+body {
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+}
+body a:hover {
+  color: #f56;
+}
+header,
+main,
+footer {
+  margin: 0 auto;
+}
+header {
+  position: relative;
+  overflow: hidden;
+  height: 1000px;
+}
+header .header_op {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 222;
+}
+header .header_tab img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -600px;
+  margin-left: -960px;
+  opacity: 0;
+}
+header .header_tab img:first-child {
+  opacity: 1;
+}
+main {
+  position: relative;
+}
+main nav {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: #fff;
+  border-bottom: 0.5px solid #f5f5f5;
+  transition: all 0.3s;
+}
+main nav .nav {
+  width: 1150px;
+  height: 50px;
+  margin: 0 auto;
+}
+main nav .nav .nav_div {
+  width: 1150px;
+  height: 50px;
+  position: absolute;
+  padding: 0 15px;
+}
+main nav .nav .nav_div a {
+  padding: 0 16px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+  letter-spacing: 3px;
+  // transition: all 0.3s;
+}
+main nav .nav .nav_div .indexpage {
+  font-size: 22px;
+  font-weight: 700;
+}
+main .nav_Replace {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  display: none;
+}
+main section .section_box {
+  width: 1150px;
+  position: relative;
+  margin: 0 auto;
+  padding: 60px 0px;
+}
+main section .section_box .section_text {
+  z-index: 1;
+}
+main section .section_box .section_text .myTitle {
+  height: 30px;
+  top: 0px;
+  left: 0;
+  font-size: 30px;
+  font-weight: 700px;
+  letter-spacing: 4px;
+  text-align: center;
+}
+main section .section_box .section_text .myDescribe {
+  width: 560px;
+  margin: 30px auto;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+}
+main section .section_box .myColumn {
+  z-index: 2;
+  margin-top: 30px;
+}
+main .MY_box {
+  background-color: #fff;
+}
+main .MY_box .myColumn span {
+  width: 1015px;
+  margin-left: 50px;
+  font-size: 14px;
+  display: block;
+  height: 50px;
+  line-height: 30px;
+}
+main .MY_box .myColumn span i {
+  margin-bottom: -10px;
+}
+main .MY_box .myColumn span i:first-child {
+  width: 31px;
+  height: 28px;
+  background: url(../../img/call.jpg) no-repeat -52px -55px;
+  display: inline-block;
+}
+main .MY_box .myColumn span i:last-child {
+  width: 30px;
+  height: 31px;
+  background: url(../../img/call.jpg) no-repeat -112px -55px;
+  display: inline-block;
+}
+main .skill_box .section_box .myColumn .fl,
+main .skill_box .section_box .myColumn .fr {
+  width: 25%;
+  height: 250px;
+  float: left;
+  padding: 15px;
+  box-sizing: border-box;
+  
+}
+
+main .skill_box .section_box .myColumn .fl div,
+main .skill_box .section_box .myColumn .fr div {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: relative;
+  padding: 60px 25px;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+main .skill_box .section_box .myColumn .fl :hover,
+main .skill_box .section_box .myColumn .fr :hover{
+  transform: rotate(20deg); 
+}
+main .skill_box .section_box .myColumn .fl div i,
+main .skill_box .section_box .myColumn .fr div i {
+  transition: all 0.3s;
+  width: 41px;
+  height: 45px;
+  display: block;
+  margin: 0 auto;
+}
+main .skill_box .section_box .myColumn .fl div h3,
+main .skill_box .section_box .myColumn .fr div h3 {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 18px;
+  padding: 20px 0;
+  transition: all 0.3s;
+}
+main .skill_box .section_box .myColumn .fl div p,
+main .skill_box .section_box .myColumn .fr div p {
+  text-align: center;
+  width: 100%;
+  transition: all 0.3s;
+}
+main .skill_box .section_box .myColumn .fl div .myColumn1,
+main .skill_box .section_box .myColumn .fr div .myColumn1 {
+  background: url(../../img/icon.png) 0px -43px no-repeat;
+}
+main .skill_box .section_box .myColumn .fl div .myColumn2,
+main .skill_box .section_box .myColumn .fr div .myColumn2 {
+  background: url(../../img/icon.png) -40px 0px no-repeat;
+}
+main .skill_box .section_box .myColumn .fl div .myColumn3,
+main .skill_box .section_box .myColumn .fr div .myColumn3 {
+  background: url(../../img/icon.png) -85px 0px no-repeat;
+}
+main .skill_box .section_box .myColumn .fl div .myColumn4,
+main .skill_box .section_box .myColumn .fr div .myColumn4 {
+  background: url(../../img/icon.png) -254px 0px no-repeat;
+}
+main .skill_box .section_box .myColumn .fl div .myColumn5,
+main .skill_box .section_box .myColumn .fr div .myColumn5 {
+  background: url(../../img/icon.png) 0px 0px no-repeat;
+}
+main .skill_box .section_box .myColumn .fl div .myColumn6,
+main .skill_box .section_box .myColumn .fr div .myColumn6 {
+  background: url(../../img/icon.png) -125px 0px no-repeat;
+}
+main .skill_box .section_box .myColumn .fl div .myColumn7,
+main .skill_box .section_box .myColumn .fr div .myColumn7 {
+  background: url(../../img/icon.png) -214px 0px no-repeat;
+}
+main .skill_box .section_box .myColumn .fl div .myColumn8,
+main .skill_box .section_box .myColumn .fr div .myColumn8 {
+  background: url(../../img/icon.png) -171px 0px no-repeat;
+}
+main .works_box {
+  background-color: #fff;
+}
+main .works_box .section_box .myColumn .fl {
+  width: 33.33333%;
+  height: 250px;
+  float: left;
+  padding: 15px;
+  box-sizing: border-box;
+}
+main .works_box .section_box .myColumn .fl .mCBOx {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #f56;
+  position: relative;
+}
+main .works_box .section_box .myColumn .fl .mCBOx .line {
+  width: 100%;
+  height: 100%;
+  display: none;
+  padding: 15px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+main .works_box .section_box .myColumn .fl .mCBOx .line div {
+  background-color: #fff;
+  position: absolute;
+}
+main .works_box .section_box .myColumn .fl .mCBOx .line .linetop {
+  width: 0;
+  height: 1px;
+  top: 15px;
+  right: 16px;
+}
+main .works_box .section_box .myColumn .fl .mCBOx .line .lineright {
+  width: 1px;
+  height: 0;
+  right: 15px;
+  bottom: 15px;
+}
+main .works_box .section_box .myColumn .fl .mCBOx .line .linebottom {
+  width: 0;
+  height: 1px;
+  bottom: 15px;
+  left: 15px;
+}
+main .works_box .section_box .myColumn .fl .mCBOx .line .lineleft {
+  width: 1px;
+  height: 0;
+  left: 15px;
+  top: 15px;
+}
+main .works_box .section_box .myColumn .fl .mCBOx .mCBOxbg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+main .works_box .section_box .myColumn .fl .mCBOx .myColumntext {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+main .works_box .section_box .myColumn .fl .mCBOx .myColumntext h3 {
+  display: block;
+  width: 100%;
+  line-height: 30px;
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  top: 40px;
+}
+main .works_box .section_box .myColumn .fl .mCBOx .myColumntext p {
+  display: block;
+  width: 100%;
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  bottom: 40px;
+  opacity: 0;
+}
+main .describe_box .section_box .myColumn {
+  padding: 20px 50px;
+  box-sizing: border-box;
+  margin-top: 60px;
+}
+main .describe_box .section_box .myColumn i {
+  width: 10px;
+  display: block;
+  border-bottom: 1px solid #f56;
+}
+main .describe_box .section_box .myColumn .rhesis_box {
+  margin-top: 30px;
+  color: #a6a6a6;
+}
+main .describe_box .section_box .myColumn .rhesis_box .rhesis_box_text {
+  width: 700px;
+}
+main .describe_box .section_box .myColumn .rhesis_box .rhesis_box_text p {
+  font-size: 22px;
+  line-height: 46px;
+  text-align: left;
+}
+main .describe_box .section_box .myColumn .rhesis_box .rhesis_box_text span {
+  font-size: 14px;
+  line-height: 54px;
+}
+main .describe_box .section_box .myColumn .rhesis_box .rhesis_box_img {
+  width: 200px;
+  height: 200px;
+  background-color: #ccc;
+}
+main .describe_box .section_box .myColumn .rhesis_box .rhesis_box_img img {
+  width: 100%;
+  height: 100%;
+}
+footer {
+  background-color: #141313;
+  height: 200px;
+}
+footer .scroll-up {
+  width: 35px;
+  height: 35px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 6px;
+  z-index: 99999;
+  display: none;
+}
+footer .scroll-up span {
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #ccc;
+  opacity: 0.5;
+  border-radius: 6px;
+}
+footer .scroll-up i {
+  width: 12px;
+  height: 7px;
+  margin: 12px auto;
+  display: block;
+  background: url(../../img/is.png) no-repeat;
+  background-position: 100% 0;
+}
