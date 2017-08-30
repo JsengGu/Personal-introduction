@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background: #ccc;
+        }
+        /*大盒子*/
+        .box{
+            width: 450px;
+            height: 400px;
+            margin:200px auto;
+            background: #fff;
+            position: relative;
+        }
+        .box div{
+            width: 50px;
+            height: 50px;
+        }
+
+        /*背景*/
+        .kbg{
+            background-color: #fff;
+            float: left;
+        }
+        .bg{
+            background-color: #9ffce3;
+            float: left;
+        }
+        /*目的地*/
+        .end{
+            background-color: #b5e61d;
+            float: left;
+        }
+        /*方块*/
+        .case{
+            position: absolute;
+            background-color: #ed1c24;
+            z-index: 3;
+        }
+
+        
+        /*人物*/
+        .people{
+            position: absolute;
+            background-color: #22b14c;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"> 
+    </div>
+
+    <script>
+        //大盒子 
+        var oBox=document.querySelector('.box');
+        // 数据
+        var firstone={
+            end:[],
+            caseDiv:[],
+            zMap:[  
+                    0,0,0,0,0,0,0,0,0,
+                    0,1,1,1,4,0,0,0,0,
+                    0,1,1,2,1,0,0,0,0,
+                    0,1,1,2,1,0,0,3,0,
+                    0,0,0,1,0,0,0,3,0,
+                    0,0,0,1,1,1,1,3,0,
+                    0,0,1,1,1,0,1,1,0,
+                    0,0,1,1,1,0,0,0,0,
+                    0,0,0,0,0,0,0,0,0,
+                ],
+            people:{
+                x:3,
+                y:1
+            },
+            case:[
+                    {
+                        x:2,
+                        y:2
+                    },
+                    {
+                        x:2,
+                        y:3
+                    },
+                    {
+                        x:7,
+                        y:3
+                    }
+                ]
+        };
+        //人物行动
+        document.onkeydown=function(ev){
+            var oEvent = ev || event;
+            switch(oEvent.keyCode){
+                //左
+                case 37:
+                    movement({x:-1,y:0});
+                break;
+                //上
+                case 38:
+                    movement({x:0,y:-1});
+                break;
+                //右
+                case 39:
+                    movement({x:1,y:0});
+                break;
+                //下
+                case 40:
+                    movement({x:0,y:1});
+                break;
+            };
+        };
+        //运动
+        function movement(json){
+            var xP=firstone.people.x+json.x;
+            var yP=firstone.people.y+json.y;
+            //是否让人物运动
+            if(firstone.zMap[9*yP+xP]==0){
+                return;
+            }
+            //人物运动
+            oPeople.style.left=xP*50+'px';
+            oPeople.style.top=yP*50+'px';
+            firstone.people.x=xP
+            firstone.people.y=yP;
+            for(var i=0;i<firstone.caseDiv.length;i++){
+                if(collision(oPeople,firstone.caseDiv[i])){
+                    var xC=xP+json.x;
+                    var yC=yP+json.y;
+                    if(firstone.zMap[9*yC+xC]==0){
+                        xP=firstone.people.x-json.x;
+                        yP=firstone.people.y-json.y;
+                        oPeople.style.left=xP*50+'px';
+                        oPeople.style.top=yP*50+'px';
+                        firstone.people.x=xP
+                        firstone.people.y=yP;
+                        return;
+                    }
+                    firstone.caseDiv[i].style.left=xC*50+'px';
+                    firstone.caseDiv[i].style.top=yC*50+'px';
+                    for(var j=0;j<firstone.caseDiv.length;j++){
+                        if(firstone.caseDiv[i]!=firstone.caseDiv[j]&&collision(firstone.caseDiv[i],firstone.caseDiv[j])){
+                            firstone.caseDiv[i].style.left=xP*50+'px';
+                            firstone.caseDiv[i].style.top=yP*50+'px';
+                            xP=firstone.people.x-json.x;
+                            yP=firstone.people.y-json.y;
+                            oPeople.style.left=xP*50+'px';
+                            oPeople.style.top=yP*50+'px';
+                            firstone.people.x=xP
+                            firstone.people.y=yP;
+                            
+                        }
+                    }                    
+                }
+            }
+            var ison=0;
+            for(var i=0;i<firstone.caseDiv.length;i++){
+                var str=''+firstone.caseDiv[i].offsetLeft+firstone.caseDiv[i].offsetTop;
+                if(findInArr(str,firstone.end)){
+                    ison++;
+                }
+                if(ison==firstone.end.length){
+                    setTimeout(function(){
+                        alert('通关')
+                    }, 100);
+                    
+                }
+            }
+
+        }
+
+        //判断一个数在不在这个数组
+        function findInArr(num,arr){
+            for(var i=0;i<arr.length;i++){
+                if(num==arr[i]){
+                    return 1;
+                }
+            }
+            return 0;
+        }
+
+        //人物和箱子是否相遇
+        function collision(obj1,obj2){
+            //箱子1
+            var l1 = obj1.offsetLeft;
+            var t1 = obj1.offsetTop;
+            var r1 = l1+obj1.offsetWidth;
+            var b1 = t1+obj1.offsetHeight;
+            //箱子2
+            var l2 = obj2.offsetLeft;
+            var t2 = obj2.offsetTop;
+            var r2 = l2+obj2.offsetWidth;
+            var b2 = t2+obj2.offsetHeight;
+            if(b1<=t2 || l1>=r2 || t1>=b2 || r1<=l2){
+                //不撞
+                return false;
+            }else{
+                //相撞
+                return true;
+            }
+        }
+
+        //创建方块
+        var oPeople=setdiv();
+        function setdiv(){
+            //创建背景
+            for(var i=0;i<firstone.zMap.length;i++){
+                var oDiv=document.createElement('div');
+                oBox.appendChild(oDiv);
+                if(firstone.zMap[i]==0){
+                    oDiv.className='kbg';
+                }else if(firstone.zMap[i]==3){ 
+                    oDiv.className='end';
+                    firstone.end.push(''+oDiv.offsetLeft+oDiv.offsetTop);
+                }else{
+                    oDiv.innerHTML=''
+                    oDiv.className='bg';
+                }                
+            }
+            //创建方块
+            for(var i=0;i<firstone.case.length;i++){
+                var oCase=document.createElement('div');
+                oCase.style.left=firstone.case[i].x*50+'px';
+                oCase.style.top=firstone.case[i].y*50+'px';
+                oCase.className='case';
+                oBox.appendChild(oCase);
+                firstone.caseDiv.push(oCase)
+            }
+            //创建人物
+            var oPeople=document.createElement('div');
+            oPeople.style.left=firstone.people.x*50+'px';
+            oPeople.style.top=firstone.people.y*50+'px';
+            oPeople.className='people';
+            oBox.appendChild(oPeople);
+            return oPeople;
+        }
+    </script>
+
+</body>
+</html>
